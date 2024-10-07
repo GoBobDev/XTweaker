@@ -1,19 +1,21 @@
-LunaTools Tweaker is a powerful tool designed to enhance and customize your Windows experience. This program allows users to tweak various settings and optimize their workflow.
+LunaTools Tweaker — это мощный инструмент, разработанный для улучшения и настройки вашего опыта работы с Windows. Эта программа позволяет пользователям настраивать различные параметры и оптимизировать свой рабочий процесс.
 
-Features:
+Особенности:
 
-Customizable Settings: Adjust various parameters to suit your needs.
-User-Friendly Interface: Easy to navigate and use.
-Performance Optimization: Improve the efficiency.
-Regular Updates: Stay up-to-date with the latest features and improvements.
+Настраиваемые параметры: настраивайте различные параметры в соответствии с вашими потребностями.
 
-To install LunaTools Tweaker, follow these steps:
- 1. Download the installer
- 2. Setup the program
- 3. And open it
+Удобный интерфейс: легко ориентироваться и использовать.
+Оптимизация производительности: повышайте эффективность.
+Регулярные обновления: будьте в курсе последних функций и улучшений.
 
-!EASY INSTALLING!
+Чтобы установить LunaTools Tweaker, выполните следующие действия:
 
-Do not move the programm folder if your folders have "spaces" !!
+1. Загрузите установщик
+2. Настройте программу
+3. И откройте ее
 
-! This program is ALPHA - not recommended !
+! ЛЕГКАЯ УСТАНОВКА!
+
+Не перемещайте папку программы, если в ваших папках есть «пробелы» !!
+
+! Эта программа находится в стадии АЛЬФА — не рекомендуется !
