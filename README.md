@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7660f47f-e853-43e3-909d-0eafd1c93923)
+![image](https://github.com/user-attachments/assets/cb527bff-1a09-4831-8bf9-b119c2527723)
 
 LunaTools — это мощный инструмент, разработанный для улучшения и настройки вашего опыта работы с Windows. Эта программа позволяет пользователям настраивать различные параметры и оптимизировать свой рабочий процесс.
 
