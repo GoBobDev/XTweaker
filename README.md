@@ -1,5 +1,8 @@
 
-![icons8-настройки-100-removebg-preview](https://github.com/user-attachments/assets/42b85b21-47ab-422d-802a-55a4506b1bec)
+
+![icons8-настройки-100 (1)](https://github.com/user-attachments/assets/18633822-8101-4aad-81c4-a37c0ab38f49)
+
+
 
 ## XTweaker ##
 
