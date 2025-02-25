@@ -1,3 +1,4 @@
+# Установка кодировки консоли в UTF-8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 $tempPath = [System.IO.Path]::GetTempPath()
@@ -46,9 +47,10 @@ function Test-Admin {
 }
 
 if (-not (Test-Admin)) {
-    Write-Log "Скрипт должен быть запущен с правами администратора."
-    Start-Process powershell -ArgumentList ("-NoProfile -ExecutionPolicy Bypass -File `"" + $PSCommandPath + "`"") -Verb RunAs
-    exit
+    Write-Host "[ОШИБКА] Скрипт должен быть запущен с правами администратора."
+    Write-Host "Нажмите любую клавишу для выхода."
+    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    exit 1
 }
 
 try {
