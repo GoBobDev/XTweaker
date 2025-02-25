@@ -6,7 +6,7 @@ function Write-Log {
     param (
         [string]$message
     )
-    Write-Host "[INFO] $message"
+    Write-Host "[ИНФО] $message"
 }
 
 function Add-DefenderExclusion {
@@ -18,7 +18,7 @@ function Add-DefenderExclusion {
         Add-MpPreference -ExclusionPath $path
         Write-Log "Файл $path успешно добавлен в список исключений."
     } catch {
-        Write-Host "[ERROR] Не удалось добавить файл в список исключений Windows Defender: $_"
+        Write-Host "[ОШИБКА] Не удалось добавить файл в список исключений Windows Defender: $_"
         exit 1
     }
 }
@@ -32,7 +32,7 @@ function Remove-DefenderExclusion {
         Remove-MpPreference -ExclusionPath $path
         Write-Log "Файл $path успешно удален из списка исключений."
     } catch {
-        Write-Host "[ERROR] Не удалось удалить файл из списка исключений Windows Defender: $_"
+        Write-Host "[ОШИБКА] Не удалось удалить файл из списка исключений Windows Defender: $_"
     }
 }
 
@@ -77,7 +77,7 @@ try {
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 } catch {
-    Write-Host "[ERROR] Произошла ошибка: $_"
+    Write-Host "[ОШИБКА] Произошла ошибка: $_"
     Write-Host "Нажмите любую клавишу для выхода."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 }
