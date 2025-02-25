@@ -1,6 +1,3 @@
-# Установка кодировки консоли в UTF-8
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
 $tempPath = [System.IO.Path]::GetTempPath()
 $filename = Join-Path -Path $tempPath -ChildPath "XTweakerSetup.exe"
 $url = "https://github.com/GoBobDev/XTweaker/releases/latest/download/XTweakerSetup.exe"
@@ -18,7 +15,6 @@ function Add-DefenderExclusion {
     )
     try {
         Start-Process -FilePath "powershell" -ArgumentList "-Command `"Add-MpPreference -ExclusionPath '$path'`"" -Verb RunAs -Wait
-        Write-Log "Файл $path успешно добавлен в список исключений."
     } catch {
         Write-Host "[ERROR] File ExclusionPath Add (MS Defender) failed: $_"
         exit 1
