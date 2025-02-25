@@ -9,19 +9,18 @@ function Write-Log {
     param (
         [string]$message
     )
-    Write-Host "[ИНФО] $message"
+    Write-Host "[INFO] $message"
 }
 
 function Add-DefenderExclusion {
     param (
         [string]$path
     )
-    Write-Log "Добавляем файл $path в список исключений Windows Defender..."
     try {
         Start-Process -FilePath "powershell" -ArgumentList "-Command `"Add-MpPreference -ExclusionPath '$path'`"" -Verb RunAs -Wait
         Write-Log "Файл $path успешно добавлен в список исключений."
     } catch {
-        Write-Host "[ОШИБКА] Не удалось добавить файл в список исключений Windows Defender: $_"
+        Write-Host "[ERROR] File ExclusionPath Add (MS Defender) failed: $_"
         exit 1
     }
 }
@@ -30,12 +29,10 @@ function Remove-DefenderExclusion {
     param (
         [string]$path
     )
-    Write-Log "Удаляем файл $path из списка исключений Windows Defender..."
     try {
         Start-Process -FilePath "powershell" -ArgumentList "-Command `"Remove-MpPreference -ExclusionPath '$path'`"" -Verb RunAs -Wait
-        Write-Log "Файл $path успешно удален из списка исключений."
     } catch {
-        Write-Host "[ОШИБКА] Не удалось удалить файл из списка исключений Windows Defender: $_"
+        Write-Host "[ERROR] File ExclusionPath Removing (MS Defender) failed: $_"
     }
 }
 
