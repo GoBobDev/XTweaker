@@ -1,3 +1,5 @@
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 $tempPath = [System.IO.Path]::GetTempPath()
 $filename = Join-Path -Path $tempPath -ChildPath "XTweakerSetup.exe"
 $url = "https://github.com/GoBobDev/XTweaker/releases/latest/download/XTweakerSetup.exe"
@@ -15,7 +17,7 @@ function Add-DefenderExclusion {
     )
     Write-Log "Добавляем файл $path в список исключений Windows Defender..."
     try {
-        Add-MpPreference -ExclusionPath $path
+        Start-Process -FilePath "powershell" -ArgumentList "-Command `"Add-MpPreference -ExclusionPath '$path'`"" -Verb RunAs -Wait
         Write-Log "Файл $path успешно добавлен в список исключений."
     } catch {
         Write-Host "[ОШИБКА] Не удалось добавить файл в список исключений Windows Defender: $_"
@@ -29,7 +31,7 @@ function Remove-DefenderExclusion {
     )
     Write-Log "Удаляем файл $path из списка исключений Windows Defender..."
     try {
-        Remove-MpPreference -ExclusionPath $path
+        Start-Process -FilePath "powershell" -ArgumentList "-Command `"Remove-MpPreference -ExclusionPath '$path'`"" -Verb RunAs -Wait
         Write-Log "Файл $path успешно удален из списка исключений."
     } catch {
         Write-Host "[ОШИБКА] Не удалось удалить файл из списка исключений Windows Defender: $_"
